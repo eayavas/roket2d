@@ -51,6 +51,12 @@ python main.py --log path/to/logfile.txt
 python main.py
 ```
 
+#### With particle effects enabled:
+```bash
+python main.py --particles
+python main.py --log path/to/logfile.txt --particles
+```
+
 ### Installation Mode
 
 #### Install the package:
@@ -63,6 +69,9 @@ pip install -e .
 rocket-visualizer --log path/to/logfile.txt
 # or
 rocket-visualizer
+# With particles enabled
+rocket-visualizer --particles
+rocket-visualizer --log path/to/logfile.txt --particles
 ```
 
 ## Log Format

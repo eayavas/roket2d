@@ -46,9 +46,10 @@ class Particle:
 class ParticleSystem:
     """Manages particle effects for the rocket visualization"""
     
-    def __init__(self, window_width: int, window_height: int):
+    def __init__(self, window_width: int, window_height: int, enabled: bool = False):
         self.window_width = window_width
         self.window_height = window_height
+        self.enabled = enabled
         self.exhaust_particles: List[Particle] = []
         self.dust_particles: List[Particle] = []
     
@@ -56,6 +57,9 @@ class ParticleSystem:
                                acceleration_x: float, acceleration_y: float, 
                                acceleration_z: float, pitch: float):
         """Create exhaust particles based on acceleration data"""
+        if not self.enabled:
+            return
+            
         # Calculate thrust magnitude from acceleration
         accel_magnitude = math.sqrt(acceleration_x**2 + acceleration_y**2 + acceleration_z**2)
         
@@ -84,6 +88,9 @@ class ParticleSystem:
     def create_dust_particles(self, acceleration_x: float, acceleration_y: float, 
                             acceleration_z: float, pitch: float):
         """Create dust particles for speed sensation - particles flow from nose to tail direction"""
+        if not self.enabled:
+            return
+            
         # Calculate speed from acceleration magnitude
         speed_magnitude = math.sqrt(acceleration_x**2 + acceleration_y**2 + acceleration_z**2)
         

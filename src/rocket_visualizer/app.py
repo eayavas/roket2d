@@ -12,12 +12,12 @@ from .ui import DebugUI
 class RocketVisualizerApp(pyglet.window.Window):
     """Main application window"""
     
-    def __init__(self, log_file_path: str = None, width: int = 600, height: int = 600):
+    def __init__(self, log_file_path: str = None, width: int = 600, height: int = 600, enable_particles: bool = False):
         super().__init__(width, height, caption="Rocket Visualizer")
         
         # Initialize components
         self.log_reader = LogReader(log_file_path)
-        self.particle_system = ParticleSystem(width, height)
+        self.particle_system = ParticleSystem(width, height, enabled=enable_particles)
         self.rocket_renderer = RocketRenderer(width, height)
         self.background_renderer = BackgroundRenderer()
         self.debug_ui = DebugUI(width, height)
