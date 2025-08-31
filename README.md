@@ -11,6 +11,26 @@ A real-time rocket visualization application that displays a rocket with orienta
 - **Meter/compass background** for reference
 - **Test mode** when no log file is provided
 
+## Project Structure
+
+```
+roket2d/
+├── main.py                    # Main entry point
+├── src/
+│   └── rocket_visualizer/
+│       ├── __init__.py        # Package initialization
+│       ├── app.py             # Main application window
+│       ├── log_data.py        # Log file handling and parsing
+│       ├── particles.py       # Particle system effects
+│       ├── rocket.py          # Rocket rendering and background
+│       └── ui.py              # Debug UI components
+├── assets/
+│   ├── roket.png             # Rocket sprite
+│   └── meter.png             # Background meter
+├── requirements.txt          # Dependencies
+└── README.md                # This file
+```
+
 ## Installation
 
 ```bash
@@ -19,14 +39,30 @@ pip install -r requirements.txt
 
 ## Usage
 
-### With log file:
+### Development Mode
+
+#### With log file:
 ```bash
-python rocket_visualizer.py --log path/to/logfile.txt
+python main.py --log path/to/logfile.txt
 ```
 
-### Test mode (generates simulated data):
+#### Test mode (generates simulated data):
 ```bash
-python rocket_visualizer.py
+python main.py
+```
+
+### Installation Mode
+
+#### Install the package:
+```bash
+pip install -e .
+```
+
+#### Run after installation:
+```bash
+rocket-visualizer --log path/to/logfile.txt
+# or
+rocket-visualizer
 ```
 
 ## Log Format
